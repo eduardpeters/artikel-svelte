@@ -1,3 +1,13 @@
+# Artikel
+
+> Was soll denn das?
+
+**Artikel** is born from the desire to build and share a simple game where german language students can put their knowledge about articles and nouns to the test.
+
+This is currently a very early WIP.
+
+## `the original readme (just in case)`
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
