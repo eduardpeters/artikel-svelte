@@ -2,13 +2,19 @@
 	import { words } from './words.js';
 	let index = 0;
 	let score = 0;
+	let isValidPlay = true;
 
 	function submitChoice(choice: string): void {
 		if (choice === words[index].article) {
-			score += 1;
+			if (isValidPlay) {
+				score += 1;
+			} else {
+				isValidPlay = true;
+			}
 			index += 1;
 		} else {
 			alert('Try again!');
+			isValidPlay = false;
 		}
 	}
 </script>
