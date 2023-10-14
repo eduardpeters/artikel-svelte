@@ -17,6 +17,12 @@
 			isValidPlay = false;
 		}
 	}
+
+	function resetGame(): void {
+		index = 0;
+		score = 0;
+		isValidPlay = true;
+	}
 </script>
 
 <main>
@@ -29,5 +35,6 @@
 		<h1>{score}</h1>
 	{:else}
 		<h2>Finished! Your score: {score}</h2>
+		<button on:click={() => resetGame()}>Play again!</button>
 	{/if}
 </main>
