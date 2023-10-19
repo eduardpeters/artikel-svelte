@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let data;
+	import type { PostSlugRouteData } from '$lib/types/posts';
+
+	export let data: PostSlugRouteData;
 </script>
 
 <article>

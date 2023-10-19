@@ -16,3 +16,5 @@ export type PostMetaPath = {
 export type PostRouteData = {
 	posts: PostMetaPath[];
 };
+
+export type PostSlugRouteData = PostMetadata & { content: any };
