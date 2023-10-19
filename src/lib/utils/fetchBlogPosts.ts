@@ -1,10 +1,4 @@
-type PostFile = {
-	metadata: {
-		title: string;
-		date: string;
-	};
-	default: string;
-};
+import type { PostFile } from '$lib/types/posts';
 
 export async function fetchBlogPosts() {
 	const allPostsFiles = import.meta.glob('/src/routes/blog/*.md');

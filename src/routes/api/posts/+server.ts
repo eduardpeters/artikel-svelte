@@ -1,7 +1,7 @@
 import { fetchBlogPosts } from '$lib/utils/fetchBlogPosts';
 import { json } from '@sveltejs/kit';
 
-export async function GET() {
+export async function GET(): Promise<Response> {
 	const allPosts = await fetchBlogPosts();
 
 	const sortedPosts = allPosts.sort((a, b) => {
