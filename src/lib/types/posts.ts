@@ -1,7 +1,18 @@
+type PostMetadata = {
+	title: string;
+	date: string;
+};
+
 export type PostFile = {
-	metadata: {
-		title: string;
-		date: string;
-	};
+	metadata: PostMetadata;
 	default: string;
+};
+
+export type PostMetaPath = {
+	metadata: PostMetadata;
+	path: string;
+};
+
+export type PostRouteData = {
+	posts: PostMetaPath[];
 };

@@ -1,6 +1,6 @@
-import type { PostFile } from '$lib/types/posts';
+import type { PostFile, PostMetaPath } from '$lib/types/posts';
 
-export async function fetchBlogPosts() {
+export async function fetchBlogPosts(): Promise<PostMetaPath[]> {
 	const allPostsFiles = import.meta.glob('/src/routes/blog/*.md');
 	const iterablePostFiles = Object.entries(allPostsFiles);
 

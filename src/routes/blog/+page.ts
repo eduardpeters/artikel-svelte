@@ -1,8 +1,8 @@
-import type { PostFile } from '$lib/types/posts.js';
+import type { PostMetaPath, PostRouteData } from '$lib/types/posts.js';
 
-export async function load({ fetch }) {
+export async function load({ fetch }): Promise<PostRouteData> {
 	const response = await fetch('/api/posts');
-	const posts = (await response.json()) as PostFile[];
+	const posts = (await response.json()) as PostMetaPath[];
 
 	return {
 		posts

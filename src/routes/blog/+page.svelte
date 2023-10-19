@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let data;
+	import type { PostRouteData } from '$lib/types/posts';
+
+	export let data: PostRouteData;
 </script>
 
 <main>
