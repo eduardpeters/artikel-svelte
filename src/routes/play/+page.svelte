@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ArticleButton from '$lib/components/ArticleButton.svelte';
 	import { words } from './words.js';
 	let index = 0;
 	let score = 0;
@@ -30,11 +31,11 @@
 	{#if index < words.length}
 		<h3>{words[index].text}</h3>
 		{#each words[index].choices as choice}
-			<button on:click={() => submitChoice(choice)}>{choice}</button>
+			<ArticleButton onClickHandler={() => submitChoice(choice)} {choice} />
 		{/each}
 		<h1>{score}</h1>
 	{:else}
 		<h2>Finished! Your score: {score}</h2>
-		<button on:click={() => resetGame()}>Play again!</button>
+		<button on:click={resetGame}>Play again!</button>
 	{/if}
 </main>
