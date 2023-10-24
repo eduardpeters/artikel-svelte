@@ -1,14 +1,5 @@
-export enum Articles {
-	DER = 'DER',
-	DIE = 'DIE',
-	DAS = 'DAS'
-}
-
-export type Word = {
-	text: string;
-	article: Articles;
-	choices: Articles[];
-};
+import { Articles } from '$lib/types/words';
+import type { Word } from '$lib/types/words';
 
 export const words: Word[] = [
 	{
