@@ -1,10 +1,12 @@
 <script lang="ts">
 	import ArticleButton from '$lib/components/ArticleButton.svelte';
+	import type { Answer } from '$lib/types/answers.js';
 	import { words } from './words.js';
 
 	let index = 0;
 	let score = 0;
 	let isValidPlay = true;
+	let answers: Answer[] = [];
 
 	function submitChoice(choice: string): void {
 		if (choice === words[index].article) {
