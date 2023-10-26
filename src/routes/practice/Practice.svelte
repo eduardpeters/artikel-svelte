@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ArticleButton from '$lib/components/ArticleButton.svelte';
 	import type { Answer } from '$lib/types/answers.js';
 	import type { Articles, Word } from '$lib/types/words';
+	import ArticleButton from '$lib/components/ArticleButton.svelte';
 	import PracticeSummary from './PracticeSummary.svelte';
 
 	export let words: Word[];
@@ -12,6 +12,11 @@
 	function submitChoice(word: Word, choice: Articles): void {
 		answers.push({ word, choice });
 		index += 1;
+	}
+
+	function resetGame(): void {
+		answers = [];
+		index = 0;
 	}
 </script>
 
@@ -24,7 +29,7 @@
 		{/each}
 	</div>
 {:else}
-	<PracticeSummary {answers} bind:index />
+	<PracticeSummary {answers} {resetGame} />
 {/if}
 
 <style>
