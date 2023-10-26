@@ -2,6 +2,7 @@
 	import ArticleButton from '$lib/components/ArticleButton.svelte';
 	import type { Answer } from '$lib/types/answers.js';
 	import type { Articles, Word } from '$lib/types/words';
+	import PracticeSummary from './PracticeSummary.svelte';
 
 	export let words: Word[];
 
@@ -11,10 +12,6 @@
 	function submitChoice(word: Word, choice: Articles): void {
 		answers.push({ word, choice });
 		index += 1;
-	}
-
-	function resetGame(): void {
-		index = 0;
 	}
 </script>
 
@@ -27,8 +24,7 @@
 		{/each}
 	</div>
 {:else}
-	<h2>Finished! Show Summary PLZ</h2>
-	<button on:click={resetGame}>Play again!</button>
+	<PracticeSummary {answers} bind:index />
 {/if}
 
 <style>
