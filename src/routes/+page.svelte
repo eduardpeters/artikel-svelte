@@ -1,3 +1,7 @@
+<script>
+	import NavAnchor from '$lib/components/NavAnchor.svelte';
+</script>
+
 <main>
 	<div class="header">
 		<h1><em>Willkommen</em> to DerDieDas</h1>
@@ -19,6 +23,7 @@
 			An arcade inspired leaderboard is available to measure up to the competition. Good luck
 			getting your mark to the top!
 		</p>
+		<NavAnchor route="/challenge" title="To challenge!" />
 	</section>
 	<section>
 		<h2>Practice for a while</h2>
@@ -26,6 +31,7 @@
 			In practice mode, you'll receive a random set of 10 nouns and play through them all. At the
 			end, you'll be able to see how well you did and get feedback on any mistakes.
 		</p>
+		<NavAnchor route="/practice" title="Practice!" />
 	</section>
 	<section>
 		<h2>Microblogs</h2>
@@ -33,6 +39,7 @@
 			Getting from idea to launch is not an easy journey. In order to blow off some steam, these
 			small fragments of the story of this project have kept development open and reflective.
 		</p>
+		<NavAnchor route="/blog" title="Visit the blogs!" />
 	</section>
 </main>
 
@@ -74,7 +81,9 @@
 	section {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		align-items: center;
+		gap: 1rem;
 		padding: 1rem;
+		max-width: 425px;
 	}
 </style>
