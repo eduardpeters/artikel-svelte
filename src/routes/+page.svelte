@@ -1,12 +1,14 @@
 <main>
-	<h1><em>Willkommen</em> to DerDieDas</h1>
-	<p>A game to practice basic german skills</p>
-	<h3>Here are the shortcuts:</h3>
-	<nav>
-		<a href="/">Challenge</a>
-		<a href="/practice">Practice</a>
-		<a href="/blog">Microblogs</a>
-	</nav>
+	<div class="header">
+		<h1><em>Willkommen</em> to DerDieDas</h1>
+		<p>A game to practice basic german skills</p>
+		<h3>Here are the shortcuts:</h3>
+		<nav>
+			<a href="/">Challenge</a>
+			<a href="/practice">Practice</a>
+			<a href="/blog">Microblogs</a>
+		</nav>
+	</div>
 	<h2>The challenge</h2>
 	<p>
 		Play through your choice of some number of german nouns for which you will have to correctly
@@ -27,3 +29,39 @@
 		fragments of the story of this project have kept development open and reflective.
 	</p>
 </main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	h1,
+	h2,
+	h3,
+	p {
+		margin: 0;
+	}
+
+	.header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem;
+		text-align: center;
+		border-bottom: 1px solid #264653;
+	}
+
+	nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		width: 100%;
+	}
+
+	nav > a {
+		color: #e76f51;
+	}
+</style>
