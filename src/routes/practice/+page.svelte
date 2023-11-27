@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Practice from './Practice.svelte';
-	import { words } from './words.js';
+
+	export let data;
+	const { words } = data;
 </script>
 
 <main>
