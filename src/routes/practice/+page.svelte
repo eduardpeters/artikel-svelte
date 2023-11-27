@@ -6,6 +6,7 @@
 </script>
 
 <main>
+	<h1>Play the game here</h1>
 	<Practice {words} />
 	<a href="/">Return to Home</a>
 </main>
@@ -15,7 +16,11 @@
 		align-items: center;
 		display: flex;
 		flex-flow: column nowrap;
-		gap: 1rem;
+		gap: 2rem;
+	}
+
+	h1 {
+		margin: 1rem 0 0;
 	}
 
 	a {

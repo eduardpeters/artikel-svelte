@@ -20,7 +20,6 @@
 	}
 </script>
 
-<h1>Play the game here</h1>
 {#if index < words.length}
 	<h2>{words[index].text}</h2>
 	<div class="choices__container">
@@ -33,6 +32,10 @@
 {/if}
 
 <style>
+	h2 {
+		margin: 0;
+	}
+
 	.choices__container {
 		display: flex;
 		flex-flow: row wrap;
