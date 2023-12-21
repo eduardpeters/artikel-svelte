@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type { Answer } from '$lib/types/answers';
+	import correctIcon from '$lib/icons/correct-icon.svg';
+	import incorrectIcon from '$lib/icons/incorrect-icon.svg';
 
 	export let resetGame: () => void;
 	export let answers: Answer[];
@@ -24,7 +26,12 @@
 			<div>
 				{answer.choice.name}
 			</div>
-			<div>{answer.word.article.id === answer.choice.id ? 'YAY' : 'NAY'}</div>
+			<img
+				width="24"
+				height="24"
+				src={answer.word.article.id === answer.choice.id ? correctIcon : incorrectIcon}
+				alt={answer.word.article.id === answer.choice.id ? 'YAY' : 'NAY'}
+			/>
 		</div>
 	{/each}
 </div>
@@ -47,7 +54,8 @@
 		width: 100%;
 	}
 
-	.summary__table-row > div {
+	.summary__table-row > div,
+	.summary__table-row > img {
 		text-align: center;
 		width: 25%;
 	}

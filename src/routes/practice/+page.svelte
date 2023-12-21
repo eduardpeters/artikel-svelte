@@ -3,7 +3,6 @@
 
 	export let data;
 	const { words, choices } = data;
-	console.log(data);
 </script>
 
 <main>
