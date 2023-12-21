@@ -3,6 +3,7 @@
 
 	export let data;
 	const { words } = data;
+	console.log(data);
 </script>
 
 <main>
