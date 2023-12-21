@@ -35,7 +35,10 @@
 		</div>
 	{/each}
 </div>
-<button on:click={resetGame}>Play again!</button>
+<div class="summary__buttons">
+	<button on:click={resetGame}>Retry words!</button>
+	<button on:click={resetGame}>New words!</button>
+</div>
 
 <style>
 	.summary__table {
@@ -64,5 +67,26 @@
 	.summary__table-header {
 		font-weight: bold;
 		font-size: large;
+	}
+
+	.summary__buttons {
+		display: flex;
+		flex-direction: row;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	button {
+		all: unset;
+		cursor: pointer;
+		background-color: #2a9d8f;
+		border-radius: 2rem;
+		padding: 1rem;
+		text-align: center;
+		width: 5rem;
+	}
+
+	button:hover {
+		scale: 1.1;
 	}
 </style>
