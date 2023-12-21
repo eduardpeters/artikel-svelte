@@ -4,7 +4,7 @@
 	export let resetGame: () => void;
 	export let answers: Answer[];
 	let score = answers.reduce(
-		(score, answer) => score + (answer.word.article === answer.choice ? 1 : 0),
+		(score, answer) => score + (answer.word.article.id === answer.choice.id ? 1 : 0),
 		0
 	);
 </script>
@@ -20,11 +20,11 @@
 	{#each answers as answer}
 		<div class="summary__table-row">
 			<div>{answer.word.text}</div>
-			<div>{answer.word.article}</div>
+			<div>{answer.word.article.name}</div>
 			<div>
-				{answer.choice}
+				{answer.choice.name}
 			</div>
-			<div>{answer.word.article === answer.choice ? 'YAY' : 'NAY'}</div>
+			<div>{answer.word.article.id === answer.choice.id ? 'YAY' : 'NAY'}</div>
 		</div>
 	{/each}
 </div>

@@ -12,5 +12,5 @@ export type Choice = {
 export type Word = {
 	id: string;
 	text: string;
-	article: number;
+	article: Choice;
 };

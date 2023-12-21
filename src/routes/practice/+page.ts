@@ -6,5 +6,6 @@ export async function load({ fetch }): Promise<{ words: Word[]; choices: Choice[
 	const articlesRequestUrl = `${PUBLIC_API_BASE_URL}articles`;
 	const res = await Promise.all([fetch(questionsRequestUrl), fetch(articlesRequestUrl)]);
 	const [words, choices] = await Promise.all([res[0].json(), res[1].json()]);
+	words.forEach((word) => (word.article = choices.find((choice) => word.article === choice.id)));
 	return { words, choices };
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Answer } from '$lib/types/answers.js';
-	import type { Articles, Choice, Word } from '$lib/types/words';
+	import type { Choice, Word } from '$lib/types/words';
 	import ArticleButton from '$lib/components/ArticleButton.svelte';
 	import PracticeSummary from './PracticeSummary.svelte';
 
@@ -10,7 +10,7 @@
 	let index = 0;
 	let answers: Answer[] = [];
 
-	function submitChoice(word: Word, choice: number): void {
+	function submitChoice(word: Word, choice: Choice): void {
 		answers.push({ word, choice });
 		index += 1;
 	}
@@ -26,7 +26,7 @@
 	<div class="choices__container">
 		{#each choices as choice}
 			<ArticleButton
-				onClickHandler={() => submitChoice(words[index], choice.id)}
+				onClickHandler={() => submitChoice(words[index], choice)}
 				choice={choice.name}
 			/>
 		{/each}
