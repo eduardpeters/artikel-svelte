@@ -58,6 +58,10 @@
 		width: 100%;
 	}
 
+	.summary__table-row:hover {
+		background-color: #f4a261;
+	}
+
 	.summary__table-row > div,
 	.summary__table-row > img {
 		text-align: center;
