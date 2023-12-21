@@ -9,6 +9,10 @@
 		(score, answer) => score + (answer.word.article.id === answer.choice.id ? 1 : 0),
 		0
 	);
+
+	function reloadPage() {
+		location.reload();
+	}
 </script>
 
 <h2>Finished! Your score: {score}</h2>
@@ -37,7 +41,7 @@
 </div>
 <div class="summary__buttons">
 	<button on:click={resetGame}>Retry words!</button>
-	<button on:click={resetGame}>New words!</button>
+	<button on:click={reloadPage}>New words!</button>
 </div>
 
 <style>
