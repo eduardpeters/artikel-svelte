@@ -2,13 +2,12 @@
 	import Practice from './Practice.svelte';
 
 	export let data;
-	const { words } = data;
-	console.log(data);
+	const { words, choices } = data;
 </script>
 
 <main>
 	<h1>Play the game here</h1>
-	<Practice {words} />
+	<Practice {words} {choices} />
 	<a href="/">Return to Home</a>
 </main>
 
