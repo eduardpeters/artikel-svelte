@@ -4,8 +4,13 @@ export enum Articles {
 	DAS = 'DAS'
 }
 
+export type Choice = {
+	id: number;
+	name: Articles;
+};
+
 export type Word = {
+	id: string;
 	text: string;
-	article: Articles;
-	choices: Articles[];
+	article: number;
 };

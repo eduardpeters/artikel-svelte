@@ -1,6 +1,6 @@
-import type { Articles, Word } from './words';
+import type { Word } from './words';
 
 export type Answer = {
 	word: Word;
-	choice: Articles;
+	choice: number;
 };
