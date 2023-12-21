@@ -26,4 +26,9 @@
 		text-align: center;
 		width: 5rem;
 	}
+
+	button:hover {
+		opacity: 0.9;
+		scale: 1.1;
+	}
 </style>
