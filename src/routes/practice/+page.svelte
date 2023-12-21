@@ -1,16 +1,29 @@
 <script lang="ts">
 	import Practice from './Practice.svelte';
-	import { words } from './words.js';
+
+	export let data;
+	const { words, choices } = data;
 </script>
 
 <main>
-	<Practice {words} />
+	<h1>Play the game here</h1>
+	<Practice {words} {choices} />
+	<a href="/">Return to Home</a>
 </main>
 
 <style>
 	main {
+		align-items: center;
 		display: flex;
 		flex-flow: column nowrap;
-		align-items: center;
+		gap: 2rem;
+	}
+
+	h1 {
+		margin: 1rem 0 0;
+	}
+
+	a {
+		color: #e76f51;
 	}
 </style>
