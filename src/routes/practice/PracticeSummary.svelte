@@ -43,6 +43,7 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: center;
+		gap: 0.5rem;
 		width: 80%;
 	}
 
@@ -62,5 +63,6 @@
 
 	.summary__table-header {
 		font-weight: bold;
+		font-size: large;
 	}
 </style>
