@@ -6,9 +6,9 @@
 	export let choice: Articles;
 
 	const colors: Dictonary<string> = {
-		[Articles.DER]: '#0000FF',
-		[Articles.DIE]: '#FF0000',
-		[Articles.DAS]: '#00FF00'
+		[Articles.DER]: '#87CEEB',
+		[Articles.DIE]: '#FF7F7F',
+		[Articles.DAS]: '#90EE90'
 	};
 </script>
 
