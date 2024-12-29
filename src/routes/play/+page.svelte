@@ -1,38 +1,37 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { invalidateAll } from '$app/navigation';
+	import { articles } from '$lib/constants/articles';
+	import QuestionsService from '$lib/services/QuestionsService';
 
-	interface Article {
-		id: number;
-		article: string;
+	interface Props {
+		data: PageData;
 	}
 
-	interface Feedback {
-		feedback: string;
-	}
-
-	let { data }: { data: PageData } = $props();
+	let { data }: Props = $props();
 
 	let loading = $state(false);
 	let feedback = $state<string | null>(null);
 
-	const articles: Article[] = [
-		{ id: 1, article: 'Der' },
-		{ id: 2, article: 'Die' },
-		{ id: 3, article: 'Das' },
-	];
-
 	async function answerQuestion(questionId: number, articleId: number) {
-		const data = { question_id: questionId, answer: articleId };
-		const response = await fetch('/api/answers', {
-			method: 'POST',
-			body: JSON.stringify(data),
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		});
-		const answerFeedback = (await response.json()) as Feedback;
+		loading = true;
+		feedback = null;
+		const questionAnswer = { questionId, articleId };
+		try {
+			const answerFeedback = await QuestionsService.postQuestionAnswer(questionAnswer);
+			feedback = answerFeedback.feedback;
+		} catch {
+			console.error('Something went wrong...');
+		} finally {
+			loading = false;
+		}
+	}
 
-		feedback = answerFeedback.feedback;
+	async function resetQuestion() {
+		loading = true;
+		feedback = null;
+		await invalidateAll();
+		loading = false;
 	}
 </script>
 
@@ -47,5 +46,5 @@
 	<div>Checking answer...</div>
 {:else if !loading && feedback}
 	<div>Result: {feedback}</div>
-	<button onclick={() => location.reload()}>Play again</button>
+	<button onclick={resetQuestion}>Play again</button>
 {/if}
