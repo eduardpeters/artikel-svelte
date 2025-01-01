@@ -5,13 +5,14 @@ interface QuestionAnswerDto {
 	question_id: number;
 	answer: number;
 }
-type AnswerFeedbackDto = AnswerFeedback;
+interface AnswerFeedbackDto {
+	article_id: number;
+	feedback: string;
+}
 
 class QuestionsService {
 	static async getRandomQuestion(): Promise<Question> {
-		const randomQuestionId = Math.floor(Math.random() * 3000);
-
-		const response = await fetch(`/api/questions/${randomQuestionId}`);
+		const response = await fetch('/api/questions/random');
 
 		if (!response.ok) {
 			throw new Error('Unable to retrieve question');
@@ -36,7 +37,8 @@ class QuestionsService {
 		}
 
 		const answerFeedback = (await response.json()) as AnswerFeedbackDto;
-		return answerFeedback;
+
+		return { articleId: answerFeedback.article_id, feedback: answerFeedback.feedback };
 	}
 }
 

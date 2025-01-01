@@ -9,5 +9,6 @@ export interface QuestionAnswer {
 }
 
 export interface AnswerFeedback {
+	articleId: number;
 	feedback: string;
 }
