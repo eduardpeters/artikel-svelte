@@ -1,2 +1,2 @@
-// Make this application an SPA project-wide
+// Make this application a SPA project-wide
 export const ssr = false;

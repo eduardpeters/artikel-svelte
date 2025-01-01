@@ -11,8 +11,10 @@ interface AnswerFeedbackDto {
 }
 
 class QuestionsService {
+	static baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 	static async getRandomQuestion(): Promise<Question> {
-		const response = await fetch('/api/questions/random');
+		const response = await fetch(`${this.baseUrl}questions/random`);
 
 		if (!response.ok) {
 			throw new Error('Unable to retrieve question');
@@ -24,7 +26,7 @@ class QuestionsService {
 
 	static async postQuestionAnswer(questionAnswer: QuestionAnswer): Promise<AnswerFeedback> {
 		const data: QuestionAnswerDto = { question_id: questionAnswer.questionId, answer: questionAnswer.articleId };
-		const response = await fetch('/api/answers', {
+		const response = await fetch(`${this.baseUrl}answers`, {
 			method: 'POST',
 			body: JSON.stringify(data),
 			headers: {
