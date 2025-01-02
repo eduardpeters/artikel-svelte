@@ -1,2 +1,5 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<main>
+	<h1><em>Willkommen</em> to DerDieDas</h1>
+	<p>A game to practice basic german article skills</p>
+	<a href="play">Play!</a>
+</main>
