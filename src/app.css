@@ -1,0 +1,22 @@
+:root {
+	--light-background: #f8f9fa;
+	--font-color: #343a40;
+	--color-der: #70d6ff;
+	--color-die: #ff9770;
+	--color-das: #ffd670;
+	--color-accent: #ff70a6;
+	--color-accent-bright: #e9ff70;
+	--color-accent-dark: #70ff79;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	background-color: var(--light-background);
+	color: var(--font-color);
+}
