@@ -8,7 +8,12 @@ export interface QuestionAnswer {
 	articleId: number;
 }
 
+export enum FeedbackResult {
+	OK = 'OK',
+	KO = 'KO',
+}
+
 export interface AnswerFeedback {
 	articleId: number;
-	feedback: string;
+	feedback: FeedbackResult;
 }
