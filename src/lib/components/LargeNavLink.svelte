@@ -20,7 +20,8 @@
 		min-width: 100px;
 	}
 
-	a:hover {
+	a:hover,
+	a:active {
 		outline: 2px solid var(--color-accent);
 	}
 </style>
