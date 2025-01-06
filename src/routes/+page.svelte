@@ -18,6 +18,10 @@
 		gap: 1rem;
 	}
 
+	h1 {
+		text-align: center;
+	}
+
 	.der {
 		color: var(--color-der);
 	}

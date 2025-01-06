@@ -11,6 +11,7 @@
 	let loadingFeedback = $state(false);
 	let question = $state<Question | null>(null);
 	let feedback = $state<AnswerFeedback | null>(null);
+	let shuffledArticles = $derived<Article[]>(question ? articles.sort(() => Math.random() - 0.5) : []);
 
 	async function fetchRandomQuestion() {
 		loadingQuestion = true;
@@ -66,7 +67,7 @@
 		<LoadingIndicator />
 	{:else if !loadingQuestion && question}
 		<div transition:fade class="article-buttons__container">
-			{#each articles as article}
+			{#each shuffledArticles as article}
 				{@render articleButton(article)}
 			{/each}
 		</div>
@@ -94,6 +95,10 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 2rem;
+	}
+
+	em {
+		font-size: 1.1rem;
 	}
 
 	p {
