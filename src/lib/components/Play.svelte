@@ -50,7 +50,8 @@
 
 {#snippet articleButton(article: Article)}
 	<button
-		class={`article-button article-button--${article.article}`}
+		transition:scale
+		class={`article-button article-button--${article.article} ${article.id === feedback?.articleId ? 'article-button--correct' : ''}`}
 		disabled={loadingFeedback || feedback !== null}
 		onclick={() => answerQuestion(question!.id, article.id)}
 	>
@@ -116,9 +117,19 @@
 		font-size: 1.1rem;
 	}
 
+	.article-button:disabled {
+		opacity: 0.8;
+		cursor: not-allowed;
+	}
+
 	.article-button:hover {
 		outline: 2px solid var(--color-accent);
 		transform: scale(1.1);
+	}
+
+	.article-button--correct.article-button:disabled {
+		opacity: 100;
+		scale: 1.2;
 	}
 
 	.article-button--Der {
