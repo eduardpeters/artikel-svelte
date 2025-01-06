@@ -2,8 +2,9 @@
 	import { onMount } from 'svelte';
 	import { articles } from '$lib/constants/articles';
 	import QuestionsService from '$lib/services/QuestionsService';
-	import type { Question } from '$lib/types/questions';
 	import LoadingIndicator from './LoadingIndicator.svelte';
+	import type { Article } from '$lib/types/articles';
+	import type { Question } from '$lib/types/questions';
 
 	let loadingQuestion = $state(true);
 	let loadingFeedback = $state(false);
@@ -46,17 +47,25 @@
 	}
 </script>
 
+{#snippet articleButton(article: Article)}
+	<button
+		class={`article-button article-button--${article.article}`}
+		disabled={loadingFeedback}
+		onclick={() => answerQuestion(question!.id, article.id)}
+	>
+		{article.article}
+	</button>
+{/snippet}
+
 <main>
 	<h1>Let's practice</h1>
 	<p>What is the article for <em>{question ? question.noun : '...'}</em>?</p>
 	{#if loadingQuestion}
 		<LoadingIndicator />
 	{:else if !loadingQuestion && question}
-		<div>
+		<div class="article-buttons__container">
 			{#each articles as article}
-				<button disabled={loadingFeedback} onclick={() => answerQuestion(question!.id, article.id)}
-					>{article.article}</button
-				>
+				{@render articleButton(article)}
 			{/each}
 		</div>
 	{/if}
@@ -85,5 +94,43 @@
 
 	p {
 		margin: 0;
+	}
+
+	.article-buttons__container {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+
+	.article-button {
+		all: unset;
+		background-color: var(--color-accent-dark);
+		cursor: pointer;
+		padding: 1rem 2rem;
+		border-radius: 2rem;
+		text-align: center;
+		font-size: 1.1rem;
+	}
+
+	.article-button:hover {
+		outline: 2px solid var(--color-accent);
+		transform: scale(1.1);
+	}
+
+	.article-button--Der {
+		background-color: var(--color-der);
+	}
+	.article-button--Die {
+		background-color: var(--color-die);
+	}
+	.article-button--Das {
+		background-color: var(--color-das);
+	}
+	@media screen and (max-width: 400px) {
+		.article-buttons__container {
+			flex-direction: column;
+			gap: 1rem;
+		}
 	}
 </style>
