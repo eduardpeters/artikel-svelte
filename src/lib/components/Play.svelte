@@ -11,7 +11,7 @@
 	let loadingFeedback = $state(false);
 	let question = $state<Question | null>(null);
 	let feedback = $state<AnswerFeedback | null>(null);
-	let shuffledArticles = $derived<Article[]>(question ? articles.sort(() => Math.random() - 0.5) : []);
+	let shuffledArticles = $state<Article[]>([]);
 
 	async function fetchRandomQuestion() {
 		loadingQuestion = true;
@@ -19,6 +19,7 @@
 		try {
 			const questionResponse = await QuestionsService.getRandomQuestion();
 			question = questionResponse;
+			shuffledArticles = articles.sort(() => Math.random() - 0.5);
 		} catch (error) {
 			console.error('Something went wrong...', error);
 		} finally {
