@@ -9,7 +9,9 @@
 	</h1>
 	<p>A game to practice basic german article skills</p>
 	<LargeNavLink to="/play" title="Play!" />
-	<FeaturedNoun />
+	<div class="featured-noun__container">
+		<FeaturedNoun />
+	</div>
 </main>
 
 <style>
@@ -34,5 +36,13 @@
 
 	.das {
 		color: var(--color-das);
+	}
+
+	.featured-noun__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		margin-top: 1rem;
 	}
 </style>
