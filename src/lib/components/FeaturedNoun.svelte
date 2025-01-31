@@ -33,9 +33,13 @@
 		</div>
 	{:else}
 		<div transition:fade class="content__container">
-			Display a random word
-			{noun?.article}
-			{noun?.noun}
+			<p>
+				<span class={noun?.article.toLowerCase()}>{noun?.article}</span>
+				<span> {noun?.noun}</span>
+			</p>
+			{#if noun?.is_plural}
+				<p class="plural__text"><em>plural</em></p>
+			{/if}
 		</div>
 	{/if}
 </section>
@@ -46,6 +50,7 @@
 		min-height: 7rem;
 		border: 1px solid var(--color-accent-dark);
 		border-radius: 1rem;
+		padding: 1rem;
 	}
 	@media screen and (min-width: 400px) and (max-width: 700px) {
 		section {
@@ -59,7 +64,13 @@
 	}
 
 	h2 {
+		margin: 0;
 		font-size: 1rem;
+	}
+
+	p {
+		margin: 0;
+		font-size: 1.5rem;
 	}
 
 	section,
@@ -67,14 +78,34 @@
 	.content__container {
 		display: flex;
 		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.loading__container {
 		align-items: center;
 	}
 
 	.content__container {
-		padding: 1rem;
+		align-items: start;
 	}
 
 	.error__text {
 		color: var(--color-accent);
+	}
+
+	.plural__text {
+		font-size: 1rem;
+	}
+
+	.der {
+		color: var(--color-der);
+	}
+
+	.die {
+		color: var(--color-die);
+	}
+
+	.das {
+		color: var(--color-das);
 	}
 </style>
