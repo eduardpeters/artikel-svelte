@@ -5,6 +5,8 @@
 	import NounsService from '$lib/services/NounsService';
 	import LoadingIndicator from './LoadingIndicator.svelte';
 
+	const SEARCH_BASE_URL = 'https://www.google.com/search?q=';
+
 	let loadingNoun = $state(true);
 	let noun = $state<Noun | null>(null);
 
@@ -29,17 +31,28 @@
 		</div>
 	{:else if !loadingNoun && !noun}
 		<div transition:fade class="content__container">
-			<span class="error__text">An error has occurred</span>
+			<span class="error__text">Unable to retrieve featured noun</span>
 		</div>
 	{:else}
 		<div transition:fade class="content__container">
-			<p>
-				<span class={noun?.article.toLowerCase()}>{noun?.article}</span>
-				<span> {noun?.noun}</span>
-			</p>
-			{#if noun?.is_plural}
-				<p class="plural__text"><em>plural</em></p>
-			{/if}
+			<div class="content__container--left">
+				<p>
+					<span class={noun?.article.toLowerCase()}>{noun?.article}</span>
+					<span> {noun?.noun}</span>
+				</p>
+				{#if noun?.is_plural}
+					<p class="plural__text"><em>plural</em></p>
+				{/if}
+			</div>
+			<div class="content__container--right">
+				<a
+					href={`${SEARCH_BASE_URL}${noun?.noun}`}
+					target="_blank"
+					rel="noopener noreferrer"
+					title={`search for ${noun?.noun}`}
+					aria-label={`search for ${noun?.noun}`}>🔍</a
+				>
+			</div>
 		</div>
 	{/if}
 </section>
@@ -73,12 +86,21 @@
 		font-size: 1.5rem;
 	}
 
+	a {
+		all: unset;
+		cursor: pointer;
+		font-size: 2rem;
+	}
+
 	section,
 	.loading__container,
 	.content__container {
 		display: flex;
-		flex-direction: column;
 		gap: 1rem;
+	}
+	section,
+	.loading__container {
+		flex-direction: column;
 	}
 
 	.loading__container {
@@ -86,7 +108,17 @@
 	}
 
 	.content__container {
-		align-items: start;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.content__container--left,
+	.content__container--right {
+		display: flex;
+		flex-direction: column;
+	}
+	.content__container--left {
+		gap: 1rem;
 	}
 
 	.error__text {
