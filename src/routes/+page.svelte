@@ -1,4 +1,5 @@
 <script lang="ts">
+	import FeaturedNoun from '$lib/components/FeaturedNoun.svelte';
 	import LargeNavLink from '$lib/components/LargeNavLink.svelte';
 </script>
 
@@ -8,6 +9,7 @@
 	</h1>
 	<p>A game to practice basic german article skills</p>
 	<LargeNavLink to="/play" title="Play!" />
+	<FeaturedNoun />
 </main>
 
 <style>
