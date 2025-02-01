@@ -64,6 +64,7 @@
 		border: 1px solid var(--color-accent-dark);
 		border-radius: 1rem;
 		padding: 1rem;
+		box-shadow: 2px 2px 2px var(--color-accent-dark);
 	}
 	@media screen and (min-width: 400px) and (max-width: 700px) {
 		section {
