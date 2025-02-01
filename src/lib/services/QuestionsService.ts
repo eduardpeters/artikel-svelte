@@ -1,4 +1,4 @@
-import type { Question, QuestionAnswer, AnswerFeedback } from '$lib/types/questions';
+import type { Question, QuestionAnswer, AnswerFeedback, FeedbackResult } from '$lib/types/questions';
 
 type QuestionDto = Question;
 interface QuestionAnswerDto {
@@ -7,7 +7,7 @@ interface QuestionAnswerDto {
 }
 interface AnswerFeedbackDto {
 	article_id: number;
-	feedback: string;
+	feedback: FeedbackResult;
 }
 
 class QuestionsService {
