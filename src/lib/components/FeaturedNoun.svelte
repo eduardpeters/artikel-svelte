@@ -111,6 +111,7 @@
 	.content__container {
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
 	}
 
 	.content__container--left,
