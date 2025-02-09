@@ -3,6 +3,7 @@
 	import { fade, scale } from 'svelte/transition';
 	import { articles } from '$lib/constants/articles';
 	import QuestionsService from '$lib/services/QuestionsService';
+	import AppLink from './AppLink.svelte';
 	import LoadingIndicator from './LoadingIndicator.svelte';
 	import type { Article } from '$lib/types/articles';
 	import { type Question, type AnswerFeedback, FeedbackResult } from '$lib/types/questions';
@@ -87,6 +88,9 @@
 	{#if !loadingQuestion && question == null}
 		<button class="reset-button" onclick={resetQuestion}>Reload question</button>
 	{/if}
+	<div class="link__container">
+		<AppLink to={'/'} title={'Return to homepage'} />
+	</div>
 </main>
 
 <style>
@@ -178,5 +182,9 @@
 	.reset-button:hover,
 	.reset-button:active {
 		outline: 2px solid var(--color-accent);
+	}
+
+	.link__container {
+		margin-top: 2rem;
 	}
 </style>
